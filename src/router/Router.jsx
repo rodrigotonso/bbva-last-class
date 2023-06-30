@@ -1,3 +1,4 @@
+/* This file is ignored to Prettier, more info in .pretterIgnore */
 import React from "react";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import { AboutUs, Home, Login, MyTransactions, History, Error404 } from "../pages";
