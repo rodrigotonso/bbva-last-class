@@ -3,6 +3,7 @@ import React from "react";
 import { BrowserRouter, Navigate, Outlet, Route, Routes } from "react-router-dom";
 import { AboutUs, Home, Login, MyTransactions, History, Error404 } from "../pages";
 import PrivateLayout from "../layout/PrivateLayout";
+import { Counter } from "../pages/Counter";
 
 const Router = () => {
     const ISLOGGED = true
@@ -11,6 +12,7 @@ const Router = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="home" element={<Home />} />
+                <Route path="counter" element={<Counter />} />
                 <Route path="about-us" element={<><AboutUs/><Outlet/></>}>
                     <Route path="history" element={<History />} />
                 </Route>
