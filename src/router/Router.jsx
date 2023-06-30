@@ -1,15 +1,18 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { AboutUs, Home, Login, MyTransactions } from "../pages";
+import { AboutUs, Home, Login, MyTransactions, History, Error404 } from "../pages";
 
 const Router = () => {
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="AboutUs" element={<AboutUs />} />
-                <Route path="Login" element={<Login />} />
-                <Route path="MyTransactions" element={<MyTransactions />} />
+                <Route path="about-us" element={<AboutUs />}>
+                    <Route path="history" element={<History />} />
+                </Route>
+                <Route path="login" element={<Login />} />
+                <Route path="my-transactions" element={<MyTransactions />} />
+                <Route path="*" element={<Error404 />} />
             </Routes>
         </BrowserRouter>
     );
