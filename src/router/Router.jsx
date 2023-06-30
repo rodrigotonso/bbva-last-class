@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import { AboutUs, Home, Login, MyTransactions, History, Error404 } from "../pages";
 
 const Router = () => {
@@ -7,8 +7,8 @@ const Router = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="about-us" element={<AboutUs />}>
-                    <Route path="history" element={<History />} />
+                <Route path="about-us" element={<><AboutUs/><Outlet/></>}>
+                    <Route path="about-us/history" element={<History />} />
                 </Route>
                 <Route path="login" element={<Login />} />
                 <Route path="my-transactions" element={<MyTransactions />} />
