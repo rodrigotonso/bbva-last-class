@@ -4,7 +4,7 @@ import { BrowserRouter, Navigate, Outlet, Route, Routes } from "react-router-dom
 import { AboutUs, Home, Login, MyTransactions, History, Error404 } from "../pages";
 
 const Router = () => {
-    const ISLOGGED = false
+    const ISLOGGED = true
     return (
         <BrowserRouter>
             <Routes>
@@ -16,7 +16,7 @@ const Router = () => {
                 
                 {/* privateRoutes */}
                 <Route path="/" element={ISLOGGED? <Outlet/> : <Navigate to='login'/>}>
-                    <Route path="my-transactions" element={<MyTransactions />} />
+                    <Route path="my-transactions/:id" element={<MyTransactions />} />
                 </Route>
 
                 <Route path="*" element={<Error404 />} />
