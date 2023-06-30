@@ -2,9 +2,11 @@
 import React from "react";
 import { BrowserRouter, Navigate, Outlet, Route, Routes } from "react-router-dom";
 import { AboutUs, Home, Login, MyTransactions, History, Error404 } from "../pages";
+import PrivateLayout from "../layout/PrivateLayout";
 
 const Router = () => {
     const ISLOGGED = true
+    const isPrivateLayout = ISLOGGED? <PrivateLayout><Outlet/></PrivateLayout> : <Navigate to='login'/>
     return (
         <BrowserRouter>
             <Routes>
@@ -15,7 +17,7 @@ const Router = () => {
                 <Route path="login" element={<Login />} />
                 
                 {/* privateRoutes */}
-                <Route path="/" element={ISLOGGED? <Outlet/> : <Navigate to='login'/>}>
+                <Route path="/" element={isPrivateLayout}>
                     <Route path="my-transactions/:id" element={<MyTransactions />} />
                 </Route>
 
